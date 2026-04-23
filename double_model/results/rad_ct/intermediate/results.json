@@ -1,0 +1,48 @@
+{
+  "modalities": [
+    "radiomics",
+    "ct"
+  ],
+  "n_modalities": 2,
+  "dim_a": 256,
+  "dim_b": 256,
+  "concat_dim": 512,
+  "encoder_source": "single_modal_baseline train-only encoders (frozen)",
+  "best_params": {
+    "n_hidden": 2,
+    "hidden_dim": 256,
+    "dropout": 0.11503371117405088,
+    "lr": 0.009652516397736188,
+    "weight_decay": 0.00022916490086431778,
+    "batch_size": 16,
+    "epochs": 119
+  },
+  "optuna_best_val_auroc": 0.6998987854251012,
+  "val_auroc_trainonly": 0.6998987854251012,
+  "test_auroc_trainonly": 0.5768421052631579,
+  "test_auroc_trainval": 0.5,
+  "test_metrics_trainval": {
+    "auroc": 0.5,
+    "accuracy": 0.3968253968253968,
+    "confusion_matrix": [
+      [
+        0,
+        38
+      ],
+      [
+        0,
+        25
+      ]
+    ],
+    "class0_prf": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "class1_prf": [
+      0.3968253968253968,
+      1.0,
+      0.5681818181818182
+    ]
+  }
+}

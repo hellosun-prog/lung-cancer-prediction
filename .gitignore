@@ -1,0 +1,98 @@
+# 원본 데이터 (용량 크고 TCIA 라이선스 문제)
+*.csv
+*.dcm
+*.nii
+*.nii.gz
+metadata.zip
+/data/
+/CT_preprocessing/
+
+# test_predictions.csv는 re-eval 재현성 위해 allowlist
+!experiments/m1_hosny_iter7b/test_predictions.csv
+!experiments/m1_hosny_iter7b_seed7/test_predictions.csv
+!experiments/m1_hosny_iter7b_seed99/test_predictions.csv
+!experiments/m1_hosny_iter7b_seed123/test_predictions.csv
+!experiments/m1_hosny_iter7b/optuna/test_predictions_optuna.csv
+!experiments/m1_hosny_iter7b_seed7/optuna/test_predictions_optuna.csv
+!experiments/m1_hosny_iter7b_seed99/optuna/test_predictions_optuna.csv
+!experiments/m1_hosny_iter7b_seed123/optuna/test_predictions_optuna.csv
+!experiments/m1_hosny_iter7b_seed99/optuna_mlp/test_predictions_optuna_mlp.csv
+!experiments/single_modal/clinical/test_predictions.csv
+!experiments/single_modal/radiomics/test_predictions.csv
+!results/gradcam_iou.csv
+
+# 전처리 결과물 / MONAI PersistentDataset 캐시 (재현 가능, 수백 GB)
+output_clinical/
+cache/
+logs/
+
+# 구 experiments (M1 sprint 정리 중 제외)
+experiments/exp01_segresnet/
+experiments/exp02_basicunet/
+experiments/exp03_mednext/
+experiments/m1_run*/
+experiments/m1_iter*/
+experiments/m1_hosny_iter7_ema_bug*/
+experiments/m1_hosny_iter7_killed_cachebloat*/
+experiments/smoke*/
+experiments/*.log
+experiments/iterations_log.json
+
+# history.json은 훈련시마다 재생성되므로 제외
+experiments/*/history.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+*.egg-info/
+
+# 환경 (수 GB)
+.env
+venv/
+.venv/
+venv-dicom/
+anaconda_envsluna-xai/
+environment.yml
+
+# Claude workspace (개인 메모)
+.claude/
+
+# 기타 생성물
+notebooks/
+app/
+scripts/
+configs/
+web/
+
+# Grad-CAM 3D heatmap NIfTI (용량 크고 재현 가능)
+results/gradcam/
+# Grad-CAM 중간 iter 오버레이 (최종 iter5 + 히스토그램만 commit)
+figures/gradcam_overlays/
+figures/gradcam_overlays_iter0_demo/
+figures/gradcam_overlays_iter1/
+figures/gradcam_overlays_iter2/
+figures/gradcam_overlays_iter3/
+figures/gradcam_overlays_iter4/
+figures/gradcam_overlays_iter5_demo/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Team-visible baseline folders are fully tracked (scripts + csv + weights +
+# predictions + figures). Re-includes files otherwise blocked by *.csv and
+# scripts/ rules above. Add new experiment folders here as the pipeline grows
+# (e.g. triple_model/).
+!single_modal_baseline/
+!single_modal_baseline/**
+!double_model/
+!double_model/**
+!triple_model/
+!triple_model/**
+
+# …but still exclude pycache inside re-included baseline folders
+single_modal_baseline/**/__pycache__/
+double_model/**/__pycache__/
+triple_model/**/__pycache__/

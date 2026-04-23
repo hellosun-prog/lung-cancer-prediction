@@ -1,0 +1,110 @@
+{
+  "seed": 99,
+  "n_trials": 100,
+  "split": {
+    "train": 293,
+    "val": 64,
+    "test": 63
+  },
+  "feature_cols": [
+    "original_shape_LeastAxisLength",
+    "original_firstorder_10Percentile",
+    "original_firstorder_Minimum",
+    "original_gldm_DependenceVariance",
+    "wavelet-LLH_glszm_GrayLevelNonUniformityNormalized",
+    "wavelet-LLH_gldm_DependenceVariance",
+    "wavelet-LHL_glszm_GrayLevelNonUniformity",
+    "wavelet-LHL_glszm_GrayLevelNonUniformityNormalized",
+    "wavelet-LHH_glszm_LargeAreaHighGrayLevelEmphasis",
+    "wavelet-LHH_ngtdm_Busyness",
+    "wavelet-HLL_firstorder_Skewness",
+    "wavelet-HLH_firstorder_Median",
+    "wavelet-HLH_firstorder_Skewness",
+    "wavelet-LLL_glszm_LargeAreaHighGrayLevelEmphasis",
+    "wavelet-LLL_gldm_LargeDependenceLowGrayLevelEmphasis"
+  ],
+  "input_dim": 15,
+  "best_params": {
+    "hidden_dim": 128,
+    "embed_dim": 256,
+    "dropout": 0.1649815662442774,
+    "lr": 0.00020287303076791402,
+    "weight_decay": 3.819219803227176e-06,
+    "batch_size": 16,
+    "epochs": 132
+  },
+  "optuna_best_val_auroc": 0.7246963562753036,
+  "val_trainonly": {
+    "auroc": 0.7246963562753036,
+    "accuracy": 0.546875,
+    "confusion_matrix": [
+      [
+        11,
+        27
+      ],
+      [
+        2,
+        24
+      ]
+    ],
+    "class0_prf": [
+      0.8461538461538461,
+      0.2894736842105263,
+      0.43137254901960786
+    ],
+    "class1_prf": [
+      0.47058823529411764,
+      0.9230769230769231,
+      0.6233766233766234
+    ]
+  },
+  "test_trainonly": {
+    "auroc": 0.6094736842105263,
+    "accuracy": 0.38095238095238093,
+    "confusion_matrix": [
+      [
+        3,
+        35
+      ],
+      [
+        4,
+        21
+      ]
+    ],
+    "class0_prf": [
+      0.42857142857142855,
+      0.07894736842105263,
+      0.13333333333333333
+    ],
+    "class1_prf": [
+      0.375,
+      0.84,
+      0.5185185185185185
+    ]
+  },
+  "test_trainval": {
+    "auroc": 0.5726315789473685,
+    "accuracy": 0.5079365079365079,
+    "confusion_matrix": [
+      [
+        18,
+        20
+      ],
+      [
+        11,
+        14
+      ]
+    ],
+    "class0_prf": [
+      0.6206896551724138,
+      0.47368421052631576,
+      0.5373134328358209
+    ],
+    "class1_prf": [
+      0.4117647058823529,
+      0.56,
+      0.4745762711864407
+    ]
+  },
+  "epochs_used_trainonly_best": 1
+}
